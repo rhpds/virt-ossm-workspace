@@ -24,47 +24,33 @@ echo "--------------------------------------------------------------------------
 echo
 
 
-#oc rollout pause VirtualMachine/cars-vm -n travel-agency
-#oc patch deployment/cars-v1 -p '{"metadata":{"annotations":{"sidecar.jaegertracing.io/inject": "'${PARTICIPANTID}-jaeger-small-production'"}}}' -n travel-agency
-#oc rollout resume deployment/cars-v1 -n travel-agency
+
 oc patch VirtualMachine/cars-vm --type merge -p '{"spec":{"template":{"metadata":{"annotations":{"sidecar.istio.io/inject": "true"}}}}}' -n travel-agency
-oc delete pods -l vm.kubevirt.io/name=cars-vm
+oc delete pods -l vm.kubevirt.io/name=cars-vm -n travel-agency
 
-#oc rollout pause deployment/discounts-v1 -n travel-agency
-#oc patch deployment/discounts-v1 -p '{"metadata":{"annotations":{"sidecar.jaegertracing.io/inject": "'${PARTICIPANTID}-jaeger-small-production'"}}}' -n travel-agency
-#oc rollout resume deployment/discounts-v1 -n travel-agency
+
 oc patch VirtualMachine/discounts-vm --type merge -p '{"spec":{"template":{"metadata":{"annotations":{"sidecar.istio.io/inject": "true"}}}}}' -n travel-agency
-oc delete pods -l vm.kubevirt.io/name=discounts-vm
+oc delete pods -l vm.kubevirt.io/name=discounts-vm -n travel-agency
 
-#oc rollout pause deployment/flights-v1 -n travel-agency
-#oc patch deployment/flights-v1 -p '{"metadata":{"annotations":{"sidecar.jaegertracing.io/inject": "'${PARTICIPANTID}-jaeger-small-production'"}}}' -n travel-agency
-#oc rollout resume deployment/flights-v1 -n travel-agency
+
 oc patch VirtualMachine/flights-vm --type merge -p '{"spec":{"template":{"metadata":{"annotations":{"sidecar.istio.io/inject": "true"}}}}}' -n travel-agency
-oc delete pods -l vm.kubevirt.io/name=flights-vm
+oc delete pods -l vm.kubevirt.io/name=flights-vm -n travel-agency
 
-#oc rollout pause deployment/hotels-v1 -n travel-agency
-#oc patch deployment/hotels-v1 -p '{"metadata":{"annotations":{"sidecar.jaegertracing.io/inject": "'${PARTICIPANTID}-jaeger-small-production'"}}}' -n travel-agency
-#oc rollout resume deployment/hotels-v1 -n travel-agency
+
 oc patch VirtualMachine/hotels-vm --type merge -p '{"spec":{"template":{"metadata":{"annotations":{"sidecar.istio.io/inject": "true"}}}}}' -n travel-agency
-oc delete pods -l vm.kubevirt.io/name=hotels-vm
+oc delete pods -l vm.kubevirt.io/name=hotels-vm -n travel-agency
 
-#oc rollout pause deployment/insurances-v1 -n travel-agency
-#oc patch deployment/insurances-v1 -p '{"metadata":{"annotations":{"sidecar.jaegertracing.io/inject": "'${PARTICIPANTID}-jaeger-small-production'"}}}' -n travel-agency
-#oc rollout resume deployment/insurances-v1 -n travel-agency
+
 oc patch VirtualMachine/insurances-vm --type merge -p '{"spec":{"template":{"metadata":{"annotations":{"sidecar.istio.io/inject": "true"}}}}}' -n travel-agency
-oc delete pods -l vm.kubevirt.io/name=insurances-vm
+oc delete pods -l vm.kubevirt.io/name=insurances-vm -n travel-agency
 
-#oc rollout pause deployment/mysqldb-v1 -n travel-agency
-#oc patch deployment/mysqldb-v1 -p '{"metadata":{"annotations":{"sidecar.jaegertracing.io/inject": "'${PARTICIPANTID}-jaeger-small-production'"}}}' -n travel-agency
-#oc rollout resume deployment/mysqldb-v1 -n travel-agency
+
 oc patch VirtualMachine/mysqldb-vm --type merge -p '{"spec":{"template":{"metadata":{"annotations":{"sidecar.istio.io/inject": "true"}}}}}' -n travel-agency
-oc delete pods -l vm.kubevirt.io/name=mysqldb-vm
+oc delete pods -l vm.kubevirt.io/name=mysqldb-vm -n travel-agency
 
-#oc rollout pause deployment/travels-v1 -n travel-agency
-#oc patch deployment/travels-v1 -p '{"metadata":{"annotations":{"sidecar.jaegertracing.io/inject": "'${PARTICIPANTID}-jaeger-small-production'"}}}' -n travel-agency
-#oc rollout resume deployment/travels-v1 -n travel-agency
+
 oc patch VirtualMachine/travels-vm --type merge -p '{"spec":{"template":{"metadata":{"annotations":{"sidecar.istio.io/inject": "true"}}}}}' -n travel-agency
-oc delete pods -l vm.kubevirt.io/name=travels-vm
+oc delete pods -l vm.kubevirt.io/name=travels-vm -n travel-agency
 
 echo
 echo
