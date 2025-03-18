@@ -4,8 +4,8 @@ ISTIO_INGRESS_ROUTE_URL=istio-ingressgateway-istio-system.apps.cluster-szndb.dyn
 
 echo
 echo
-echo "Apply initial Istio Configs to expose control to external Traffic via Service Mesh Ingress"
-echo "---------------------------------------------------------------------------------"
+echo "Applying initial Istio Configs to expose control to external Traffic via Service Mesh Ingress"
+echo "---------------------------------------------------------------------------------------------"
 
 echo "Service Mesh Ingress Gateway Route"
 echo "Ingress Route [$ISTIO_INGRESS_ROUTE_URL]"
@@ -18,6 +18,8 @@ apiVersion: networking.istio.io/v1alpha3
 metadata:
   name: control-gateway
   namespace: istio-system
+  labels:
+    module: m3
 spec:
   servers:
     - hosts:
@@ -27,33 +29,17 @@ spec:
         number: 80
         protocol: HTTP
   selector:
-    istio: ingressgateway"|oc  apply -f -
+    istio: ingressgateway"|oc -n istio-system apply -f -
 
 
-#echo "Ingress Route [$PREFIX.$DOMAIN_NAME]"
-#echo
-#echo "kind: VirtualService
-#apiVersion: networking.istio.io/v1alpha3
-#metadata:
-#  name: control
-#  namespace: travel-control
-#spec:
-#  hosts:
-#    - $PREFIX.$DOMAIN_NAME
-#  gateways:
-#    - $SM_CP_NS/control-gateway
-#  http:
-#    - route:
-#        - destination:
-#            host: control.travel-control.svc.cluster.local
-#            subset: v1
-#          weight: 100"
           
 echo "kind: VirtualService
 apiVersion: networking.istio.io/v1alpha3
 metadata:
   name: control
   namespace: travel-control
+  labels:
+    module: m3
 spec:
   hosts:
     - $ISTIO_INGRESS_ROUTE_URL
@@ -66,23 +52,14 @@ spec:
             subset: v1
           weight: 100"|oc  -n travel-control apply -f -          
           
-#echo "kind: DestinationRule
-#apiVersion: networking.istio.io/v1alpha3
-#metadata:
-#  name: control
-#  namespace: travel-control
-#spec:
-#  host: control.travel-control.svc.cluster.local
-#  subsets:
-#    - labels:
-#        version: v1
-#      name: v1"
       
 echo "kind: DestinationRule
 apiVersion: networking.istio.io/v1alpha3
 metadata:
   name: control
   namespace: travel-control
+  labels:
+    module: m3  
 spec:
   host: control-vm.travel-control.svc.cluster.local
   subsets:
@@ -90,3 +67,7 @@ spec:
         version: v1
       name: v1"|oc  -n travel-control apply -f -
 
+echo
+echo "Go to http://$ISTIO_INGRESS_ROUTE_URL"
+echo
+echo
