@@ -3,15 +3,7 @@
 
 echo
 echo
-echo "Apply a Second cars-vm instance with v2"
-echo "---------------------------------------------------------------------------------"
-#oc apply -f cars-vm-v2-no-sidecar.yaml  -n travel-agency
-#oc delete pods -l vm.kubevirt.io/name=cars-vm-v2 -n travel-agency
-
-
-echo
-echo
-echo "Create a cars DestinationRule with multiple Circuit Breaker"
+echo "Add a circuit breaker for the cars-vm v2 to the cars DestinationRule"
 echo "---------------------------------------------------------------------------------"
 echo "kind: DestinationRule
 apiVersion: networking.istio.io/v1alpha3
