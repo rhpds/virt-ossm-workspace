@@ -7,7 +7,7 @@ echo
 echo
 echo "Apply a Second cars-vm instance with v2"
 echo "---------------------------------------------------------------------------------"
-oc apply -f cars-vm-v2.yaml -n travel-agency
+oc apply -f cars-vm-v2-a.yaml -n travel-agency
 
 
 sleep 3
@@ -24,7 +24,7 @@ metadata:
   name: cars
   namespace: travel-agency
   labels:
-    module: m3
+    module: m4
 spec:
   host: cars-vm.travel-agency.svc.cluster.local
   subsets:
@@ -33,7 +33,7 @@ spec:
       name: v1
     - labels:
         version: v2
-      name: v2      "|oc  -n travel-agency apply -f -
+      name: v2"|oc  -n travel-agency apply -f -
 
 
 echo "Create a weighted loadbalancer between cars v1 (90%) and v2 (10%) versions"
@@ -45,7 +45,7 @@ metadata:
   name: cars
   namespace: travel-agency
   labels:
-    module: m3
+    module: m4
 spec:
   hosts:
     - cars-vm.travel-agency.svc.cluster.local
@@ -69,7 +69,7 @@ metadata:
   name: cars
   namespace: travel-agency
   labels:
-    module: m3
+    module: m4
 spec:
   hosts:
     - cars-vm.travel-agency.svc.cluster.local
