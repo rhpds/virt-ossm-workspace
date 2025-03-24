@@ -1,6 +1,8 @@
 #!/bin/bash
 
-ISTIO_INGRESS_ROUTE_URL=istio-ingressgateway-istio-system.apps.cluster-szndb.dynamic.redhatworkshops.io
+OCP_DOMAIN=$1
+#OCP_DOMAIN=apps.cluster-szndb.dynamic.redhatworkshops.io
+ISTIO_INGRESS_ROUTE_URL=istio-ingressgateway-istio-system.$OCP_DOMAIN
 
 echo
 echo
