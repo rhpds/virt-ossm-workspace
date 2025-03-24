@@ -1,20 +1,5 @@
 #!/bin/bash
 
-#ENV_ORIGINAL=$1
-#SM_CP_NS_ORIGINAL=$2
-#PARTICIPANTID=$3
-
-#ENV=$PARTICIPANTID-$ENV_ORIGINAL
-#SM_CP_NS=$PARTICIPANTID-$SM_CP_NS_ORIGINAL
-
-#ISTIO_INGRESS_ROUTE_URL=$(oc get route istio-ingressgateway -o jsonpath='{.spec.host}' -n $SM_CP_NS)
-
-#echo '---------------------------------------------------------------------------'
-#echo 'Environment                                : '$ENV
-#echo 'ServiceMesh Control Plane Namespace        : '$SM_CP_NS
-#echo 'Remote SMCP Route Name (when NO DNS)       : '$ISTIO_INGRESS_ROUTE_URL
-#echo '---------------------------------------------------------------------------'
-
 sleep 10
 
 
