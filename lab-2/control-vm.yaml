@@ -1,4 +1,3 @@
-# Script to  podman pull quay.io/kiali/demo_travels_control:v1
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
