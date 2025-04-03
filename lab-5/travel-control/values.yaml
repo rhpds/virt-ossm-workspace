@@ -4,4 +4,4 @@
 
 user: user1
 
-ossm-ingress: ingress-gateway.domain.com
+ossm_ingress: ingress-gateway.domain.com
