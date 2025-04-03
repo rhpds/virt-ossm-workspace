@@ -1,0 +1,6 @@
+kind: AuthorizationPolicy
+apiVersion: security.istio.io/v1beta1
+metadata:
+  name: allow-nothing
+  namespace: travel-control
+spec: {}

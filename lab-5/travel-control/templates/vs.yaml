@@ -1,0 +1,18 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: control
+  namespace: travel-control
+  labels:
+    module: m5
+spec:
+  hosts:
+    - {{ .Values.ossm-ingress }}
+  gateways:
+    - istio-system/control-gateway
+  http:
+    - route:
+        - destination:
+            host: control-vm.travel-control.svc.cluster.local
+            subset: v1
+          weight: 100
