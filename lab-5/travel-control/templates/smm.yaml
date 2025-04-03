@@ -3,6 +3,8 @@ kind: ServiceMeshMember
 metadata:
   name: default
   namespace: travel-control
+  labels:
+    module: m5    
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:

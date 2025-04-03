@@ -4,6 +4,8 @@ apiVersion: route.openshift.io/v1
 metadata:
   name: travel-control
   namespace: travel-control
+  labels:
+    module: m5    
   annotations:
     argocd.argoproj.io/sync-wave: "2"      
 spec:
