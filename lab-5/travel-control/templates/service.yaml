@@ -6,7 +6,6 @@ metadata:
   namespace: travel-control
   labels:
     module: m5    
-  labels:
     app: control-vm
   annotations:
     argocd.argoproj.io/sync-wave: "2"        
