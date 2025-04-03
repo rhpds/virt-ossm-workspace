@@ -6,6 +6,8 @@ metadata:
   namespace: travel-control
   labels:
     app: control-vm
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"        
 spec:
   ports:
     - port: 8080

@@ -3,6 +3,8 @@ kind: AuthorizationPolicy
 metadata:
   name: allow-selective-principals-travel-control
   namespace: travel-control
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"      
 spec:
   action: ALLOW
   rules:

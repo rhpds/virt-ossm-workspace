@@ -4,6 +4,8 @@ kind: VirtualMachine
 metadata:
   name: control-vm
   namespace: travel-control
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"      
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1

@@ -5,4 +5,5 @@ metadata:
   name: travel-control
   annotations:
     openshift.io/description: "Travel Control Namespace"
-    openshift.io/display-name: "Travel Control Namespace"
+    openshift.io/display-name: "Travel Control Namespace" 
+    argocd.argoproj.io/sync-wave: "1"    
