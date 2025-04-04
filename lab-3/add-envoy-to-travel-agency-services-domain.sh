@@ -4,8 +4,8 @@ sleep 10
 
 
 echo
-echo "Update VirtualMachine CRs to include in the mesh by injecting Istio and Jaeger Agent sidecars to components"
-echo "-----------------------------------------------------------------------------------------------------------------------"
+echo "Update VirtualMachine CRs to include in the mesh by injecting Istio sidecars to components"
+echo "------------------------------------------------------------------------------------------"
 echo
 
 
